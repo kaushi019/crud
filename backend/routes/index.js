@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 var router = express.Router()
 const courseData = require('../DB/courseSchema.js')
 
+
+
+
 router.get('/courses',(req,res)=>{
     res.render('courses.ejs');
 })
@@ -61,13 +64,21 @@ router.delete('/api/courses/:id',(req,res)=>{
 
 
 //update
-router.put('/api/courses/:id',(req,res)=>{
-    var ind = req.params.id;
-    console.log(ind)
+router.put('/api/courses/:id/:article',(req,res)=>{
+    var ind1 = req.params.id;
+    var ind2 = req.params.article;
+    console.log(ind1)
+    console.log(ind2)
 
-    // res.redirect('/courses')
+    courseData.findByIdAndUpdate(ind1,{ articles : ind2 },(err,obj)=>{
+        if(err)console.log(err)
+        else{
+            console.log('Record Updated !!')
+            console.log(obj)
+        }
+    });
+
 })
-
 
 
 
