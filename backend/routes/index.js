@@ -7,6 +7,8 @@ router.get('/courses',(req,res)=>{
     res.render('courses.ejs');
 })
 
+
+//create
 router.post('/courses',(req,res)=>{
     var a = req.body.choose;
 
@@ -25,6 +27,8 @@ router.post('/courses',(req,res)=>{
     res.redirect('/courses')
 });
 
+
+//retrieve
 router.get('/api/courses',(req,res)=>{
 
     courseData.find({},(err,obj)=>{
@@ -41,8 +45,28 @@ router.get('/api/courses',(req,res)=>{
 })
 
 
+//delete
+router.delete('/api/courses/:id',(req,res)=>{
+    var ind = req.params.id;
+    console.log(ind);
+
+    courseData.deleteOne({ _id : ind },(err,obj)=>{
+        if(err)console.log(err)
+        else{
+            console.log(obj)
+            console.log("Document deleted !!")
+        }
+    })
+})
 
 
+//update
+router.put('/api/courses/:id',(req,res)=>{
+    var ind = req.params.id;
+    console.log(ind)
+
+    // res.redirect('/courses')
+})
 
 
 
