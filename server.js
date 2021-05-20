@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const app = express()
 const ejs=require('ejs')
 const path=require('path')
+const configs = require('./backend/config/config.js')
 const indexRoutes = require('./backend/routes/index.js')
 const dbConnect = require('./backend/DB/dbConnect.js')
 
@@ -26,7 +27,7 @@ dbConnect.connect((cb)=>{
 
 
 
-const PORT = process.env.PORT || 3000
+const PORT = configs.webPort;
 app.listen(PORT,()=>{
     console.log("Server is running on http://localhost:"+PORT)
 })

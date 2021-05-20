@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
+const configs = require('../config/config.js')
 
-const mongo_url = process.env.MONGO_DB_STRING || "mongodb+srv://kaushi019:kaushi019@cluster0.vmzti.mongodb.net/courses?retryWrites=true&w=majority";
+
+const mongo_url = configs.mongoConnectionURL;
 const options = {
     useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true,
     useFindAndModify: false
