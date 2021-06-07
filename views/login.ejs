@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+    <div class="container" style="width: 45%;">
+        <h1 style="text-align: center;">Login</h1>
+        <form action="/login" method="post" id="logform">
+            <br>
+            <input type="text" name="username" id="username" placeholder="Enter User Name" class="form-control">
+            <br>
+            <input type="password" name="password" id="password" placeholder="Enter Password" class="form-control">
+            <br>
+            <input type="submit" value="Login" name="login" id="login" class="btn btn-outline-success btn-block">
+        </form>
+
+        <br><br>
+        <h6 style="text-align: center;">OR</h6>
+        <br>
+        <input type="submit" value="Sign-Up with Google" name="g-btn" id="g-btn" class="btn btn-primary btn-block">
+
+        <br><br>
+        <h6>New Here? <a href="/register">Register Here!</a></h6>
+
+    </div>
+
+
+
+    <script src="js/login.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+</body>
+</html>

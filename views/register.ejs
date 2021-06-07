@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+    <div class="container" style="width: 45%;">
+        <h1>Register</h1>
+        <form action="/register" method="post" id="regform">
+            <br>
+            <input type="text" name="name" id="name" placeholder="Enter Name" class="form-control">
+            <br>
+            <input type="number" name="mobile" id="mobile" placeholder="Enter Mobile Number" class="form-control">
+            <br>
+            <input type="text" name="username" id="username" placeholder="Enter Username" class="form-control">
+            <br>
+            <input type="password" name="password" id="password" placeholder="Enter Password" class="form-control">
+            <br>
+            <input type="submit" value="Register" name="register" id="register" class="btn btn-outline-primary btn-block">
+        </form>
+
+        <br><br>
+        <h6>Already have an account? <a href="/login">Login!</a></h6>
+
+    </div>
+
+
+
+    <script src="js/register.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+</body>
+</html>

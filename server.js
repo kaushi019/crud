@@ -26,7 +26,6 @@ dbConnect.connect((cb)=>{
 
 
 
-
 const PORT = configs.webPort;
 app.listen(PORT,()=>{
     console.log("Server is running on http://localhost:"+PORT)

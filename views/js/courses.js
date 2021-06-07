@@ -59,7 +59,7 @@ function display(){
     })
     .fail(function(xhr,status){
         console.log('Failed')
-    })
+    }) (result)
 
 }
 
