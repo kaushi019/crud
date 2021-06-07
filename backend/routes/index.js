@@ -7,6 +7,11 @@ const userData = require('../DB/userSchema.js')
 
 
 
+
+router.get('/',(req,res)=>{
+    res.render('home.ejs')
+})
+
 //dashboard
 router.get('/dashboard',(req,res)=>{
     res.render('dashboard.ejs')
