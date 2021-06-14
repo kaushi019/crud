@@ -28,4 +28,20 @@ $(document).ready(()=>{
 
     });
 
+
+    // $("#g-btn").click(()=>{
+    //     $.ajax({
+    //         url : '/google/callback',
+    //         type: 'GET',
+    //         dataType : "json",
+    //         success:(result)=>{
+    //             console.log(result.msg)
+    //             check(result);
+    //         },
+    //         error : ()=>{}
+    //     });
+
+    // })
+
+
 });

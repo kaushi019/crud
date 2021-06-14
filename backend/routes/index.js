@@ -1,21 +1,17 @@
 var express = require('express');
 const mongoose = require('mongoose');
 var router = express.Router()
+var passport = require('passport')
 
 const courseData = require('../DB/courseSchema.js')
 const userData = require('../DB/userSchema.js')
-
-
+require('../oauth/passport-google.js')(passport)
 
 
 router.get('/',(req,res)=>{
     res.render('home.ejs')
 })
 
-//dashboard
-router.get('/dashboard',(req,res)=>{
-    res.render('dashboard.ejs')
-})
 
 //login-register
 router.get('/register',(req,res)=>{
@@ -28,13 +24,14 @@ router.get('/login',(req,res)=>{
 //register
 router.post('/register',(req,res)=>{
     var x = req.body;
-    if(!x.name || !x.mobile || !x.username || !x.password)res.send({"msg":"Fill details"});
+    if(!x.name || !x.email || !x.username || !x.password)res.send({"msg":"Fill details"});
     else{
         var data = new userData({
             name : req.body.name,
-            mobile : req.body.mobile,
+            email : req.body.email,
             username : req.body.username,
-            password : req.body.password
+            password : req.body.password,
+            googleId : null
         });
         data.save((err,data)=>{
             if(err){
@@ -52,18 +49,18 @@ router.post('/register',(req,res)=>{
 //login
 router.post('/login',(req,res)=>{
 
-    var uname = req.body.username;
+    var uemail = req.body.email;
     var upass = req.body.password;
 
-    if(!uname || !upass)res.send({"msg":"Fill details"})
+    if(!uemail || !upass)res.send({"msg":"Fill details"})
     else{
-        userData.findOne({username : uname},(err,result)=>{
+        userData.findOne({email : uemail},(err,result)=>{
             if(result){
                 if(result.password == upass){
                     console.log(result)
                     res.send({
                         "msg" : "success",
-                        "username" : uname
+                        "username" : result.username
                     })
                 }
                 else{
@@ -77,6 +74,30 @@ router.post('/login',(req,res)=>{
         })
     }
 })
+
+
+//dashboard
+router.get('/dashboard',(req,res)=>{
+    res.render('dashboard.ejs')
+})
+
+
+//google auth
+router.get('/google', passport.authenticate('google',{ scope: [ 'profile', 'email' ] }) );
+
+router.get( '/google/callback', passport.authenticate( 'google', { failureRedirect: '/login' }),
+    (req,res)=>{
+        // console.log(req.user.email)
+        var users = req.user;
+        res.send({
+            "msg" : "success",
+            "username" : req.user.username
+        })
+        // res.render('dashboard.ejs',{users})
+    }
+);
+
+
 
 
 

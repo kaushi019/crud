@@ -15,7 +15,7 @@
         <h1 style="text-align: center;">Login</h1>
         <form action="/login" method="post" id="logform">
             <br>
-            <input type="text" name="username" id="username" placeholder="Enter User Name" class="form-control">
+            <input type="email" name="email" id="email" placeholder="Enter Email ID" class="form-control">
             <br>
             <input type="password" name="password" id="password" placeholder="Enter Password" class="form-control">
             <br>
@@ -25,7 +25,7 @@
         <br><br>
         <h6 style="text-align: center;">OR</h6>
         <br>
-        <input type="submit" value="Sign-Up with Google" name="g-btn" id="g-btn" class="btn btn-primary btn-block">
+        <button name="g-btn" id="g-btn" onclick="window.location.href='/google'" class="btn btn-primary btn-block">Sign-Up with Google</button>
 
         <br><br>
         <h6>New Here? <a href="/register">Register Here!</a></h6>
